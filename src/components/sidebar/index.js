@@ -18,7 +18,7 @@ const ListItem = styled(({ className, active, level, ...props }) => {
   list-style: none;
 
   a {
-    color: #5c6975;
+    color: var(--color-text);
     text-decoration: none;
     font-weight: ${({ level }) => (level === 0 ? 700 : 400)};
     padding: 0.45rem 0 0.45rem ${(props) => 2 + (props.level || 0) * 1}rem;
@@ -26,18 +26,12 @@ const ListItem = styled(({ className, active, level, ...props }) => {
     position: relative;
 
     &:hover {
-      color: #1ed3c6 !important;
+      color: var(--color-primary) !important;
     }
 
     ${(props) =>
-      props.active &&
-      `
-      // color: #663399;
-      border-color: rgb(230,236,241) !important;
-      border-style: solid none solid solid;
-      border-width: 1px 0px 1px 1px;
-      background-color: #fff;
-    `} // external link icon
+    props.active &&
+    `background-color: #fff; `} // external link icon
     svg {
       float: right;
       margin-right: 1rem;
@@ -56,7 +50,6 @@ const Sidebar = styled('aside')`
   position: sticky;
   top: 0;
   padding-right: 0;
-  -webkit-box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.4);
 
   @media only screen and (max-width: 1023px) {
     width: 100%;
@@ -80,13 +73,13 @@ const Divider = styled((props) => (
   </li>
 ))`
   list-style: none;
-  padding: 0.5rem 0;
+  padding: 1.5rem 0;
 
   hr {
     margin: 0;
     padding: 0;
     border: 0;
-    border-bottom: 1px solid #ede7f3;
+    border-bottom: 1px solid var(--color-border);
   }
 `;
 

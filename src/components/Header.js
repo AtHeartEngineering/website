@@ -90,7 +90,9 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
         },
       } = data;
 
-      const finalLogoLink = logo.link !== '' ? logo.link : 'https://hasura.io/';
+      const finalLogoLink = logo.link !== '' ? logo.link : 'https://atheart.engineering/';
+      console.log(logo.image);
+      console.log(logoImg);
 
       return (
         <div className={'navBarWrapper'}>
@@ -114,11 +116,6 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                 dangerouslySetInnerHTML={{ __html: config.header.social }}
               ></ul>
             ) : null}
-            {isSearchEnabled ? (
-              <div className={'searchWrapper hiddenMobile navBarUL'}>
-                <LoadableComponent collapse={true} indices={searchIndices} />
-              </div>
-            ) : null}
             <div id="navbar" className={'topnav'}>
               <div className={'visibleMobile'}>
                 <Sidebar location={location} />
@@ -140,53 +137,6 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                     );
                   }
                 })}
-                {helpUrl !== '' ? (
-                  <li>
-                    <a href={helpUrl}>
-                      <img src={help} alt={'Help icon'} />
-                    </a>
-                  </li>
-                ) : null}
-
-                {tweetText !== '' ? (
-                  <li>
-                    <a
-                      href={'https://twitter.com/intent/tweet?&text=' + tweetText}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
-                    </a>
-                  </li>
-                ) : null}
-                {tweetText !== '' || githubUrl !== '' ? (
-                  <li className="divider hiddenMobile"></li>
-                ) : null}
-                {config.header.social ? (
-                  <li className={'hiddenMobile'}>
-                    <ul
-                      className="socialWrapper"
-                      dangerouslySetInnerHTML={{ __html: config.header.social }}
-                    ></ul>
-                  </li>
-                ) : null}
-                {githubUrl !== '' ? (
-                  <li className={'githubBtn'}>
-                    <GitHubButton
-                      href={githubUrl}
-                      data-show-count="true"
-                      aria-label="Star on GitHub"
-                    >
-                      Star
-                    </GitHubButton>
-                  </li>
-                ) : null}
-                <li>
-                  <DarkModeSwitch
-                    isDarkThemeActive={isDarkThemeActive}
-                    toggleActiveTheme={toggleActiveTheme}
-                  />
-                </li>
               </ul>
             </div>
           </nav>
@@ -204,11 +154,6 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                 <span className={'iconBar'}></span>
               </span>
             </div>
-            {isSearchEnabled ? (
-              <div className={'searchWrapper'}>
-                <LoadableComponent collapse={true} indices={searchIndices} />
-              </div>
-            ) : null}
           </StyledBgDiv>
         </div>
       );

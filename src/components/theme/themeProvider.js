@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { ThemeProvider as EmotionThemeProvider, Global, css } from '@emotion/react';
 
-import { lightTheme, darkTheme } from './index';
+import { darkTheme } from './index';
 import Header from '../Header';
 import { baseStyles } from '../styles/GlobalStyles';
 import { styles } from '../../custom/styles/styles';
 
 class ThemeProvider extends React.Component {
   state = {
-    isDarkThemeActive: false,
+    isDarkThemeActive: true,
   };
 
   componentDidMount() {
@@ -32,14 +32,14 @@ class ThemeProvider extends React.Component {
 
     const { isDarkThemeActive } = this.state;
 
-    const currentActiveTheme = isDarkThemeActive ? darkTheme : lightTheme;
+    const currentActiveTheme = darkTheme;
 
     return (
       <div>
         <Global styles={[baseStyles, ...styles]} />
         <Header
           location={location}
-          isDarkThemeActive={isDarkThemeActive}
+          isDarkThemeActive={true}
           toggleActiveTheme={this.toggleActiveTheme}
         />
         <EmotionThemeProvider theme={currentActiveTheme}>{children}</EmotionThemeProvider>

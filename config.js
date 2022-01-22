@@ -1,33 +1,26 @@
 const config = {
   gatsby: {
     pathPrefix: '/',
-    siteUrl: 'https://hasura.io',
-    gaTrackingId: null,
+    siteUrl: 'https://atheart.engineering',
+    gaTrackingId: "G-QRQPPFS4QE",
     trailingSlash: false,
   },
   header: {
-    logo: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg',
-    logoLink: 'https://hasura.io/learn/',
+    logo: 'https://s3.amazonaws.com/atheart.engineering/AtHeartEngineerLogo_small.png',
+    logoLink: 'https://atheart.engineering',
     title:
-      "<a href='https://hasura.io/learn/'><img class='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
-    githubUrl: 'https://github.com/hasura/gatsby-gitbook-boilerplate',
-    helpUrl: '',
-    tweetText: '',
+      "AtHeart.Engineering",
+    githubUrl: 'https://github.com/AtHeartEngineering/website',
+    helpUrl: 'help url',
+    tweetText: 'tweet text',
     social: `<li>
-		    <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
+		    <a href="https://twitter.com/AtHeartEngineer" target="_blank" rel="noopener">
 		      <div class="twitterBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Twitter'}/>
-		      </div>
-		    </a>
-		  </li>
-			<li>
-		    <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
-		      <div class="discordBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
+		        <img src='https://s3.amazonaws.com/atheart.engineering/twitter.svg' alt={'Twitter'}/>
 		      </div>
 		    </a>
 		  </li>`,
-    links: [{ text: '', link: '' }],
+    links: [{ text: 'Github', link: 'https://github.com/AtHeartEngineer' }, { text: 'Twitter', link: 'https://twitter.com/AtHeartEngineer' }],
     search: {
       enabled: false,
       indexName: '',
@@ -38,30 +31,30 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      '/introduction', // add trailing slash if enabled above
-      '/codeblock',
+      '/index', // add trailing slash if enabled above
+      '/coding',
     ],
     collapsedNav: [
-      '/codeblock', // add trailing slash if enabled above
+      '/coding', // add trailing slash if enabled above
     ],
-    links: [{ text: 'Hasura', link: 'https://hasura.io' }],
+    links: [{ text: 'Github Repo', link: 'https://github.com/AtHeartEngineering/website' }, { text: 'Twitter', link: 'https://twitter.com/AtHeartEngineer' }],
     frontline: false,
-    ignoreIndex: true,
+    ignoreIndex: false,
     title:
-      "<a href='https://hasura.io/learn/'>graphql </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/react/introduction/'>react</a>",
+      "Here Be Navigation",
   },
   siteMetadata: {
-    title: 'Gatsby Gitbook Boilerplate | Hasura',
-    description: 'Documentation built with mdx. Powering hasura.io/learn ',
+    title: 'AtHeart.Engineering',
+    description: 'A place for my work, my ideas, and my musings',
     ogImage: null,
-    docsLocation: 'https://github.com/hasura/gatsby-gitbook-boilerplate/tree/master/content',
-    favicon: 'https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg',
+    docsLocation: 'https://github.com/AtHeartEngineering/website/tree/master/content',
+    favicon: 'src/logo.png',
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
     manifest: {
-      name: 'Gatsby Gitbook Starter',
-      short_name: 'GitbookStarter',
+      name: 'AtHeart.Engineer(ing)',
+      short_name: 'atheartengineering',
       start_url: '/',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',
@@ -69,7 +62,7 @@ const config = {
       crossOrigin: 'use-credentials',
       icons: [
         {
-          src: 'src/pwa-512.png',
+          src: 'src/logo.png',
           sizes: `512x512`,
           type: `image/png`,
         },
