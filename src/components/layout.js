@@ -1,75 +1,44 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
-
+import ScrollSpy from "react-ui-scrollspy";
 import ThemeProvider from './theme/themeProvider';
 import mdxComponents from './mdxComponents';
 import Sidebar from './sidebar';
 import RightSidebar from './rightSidebar';
 import config from '../../config.js';
 
-const Wrapper = styled('div')`
-  display: flex;
-  justify-content: space-between;
-  background: var(--color-bg-text);
 
-  @media only screen and (max-width: 767px) {
-    display: block;
-  }
-`;
+import { Navbar, Container, Row, Col } from 'react-bootstrap';
 
-const Content = styled('main')`
-  display: flex;
-  flex-grow: 1;
-  margin: 0px min(3rem, 80px);
-  padding-top: 3rem;d
-
-  @media only screen and (max-width: 1023px) {
-    padding-left: 0;
-    margin: 0 10px;
-    padding-top: 3rem;
-  }
-`;
-
-const MaxWidth = styled('div')`
-  @media only screen and (max-width: 50rem) {
-    width: 100%;
-    position: relative;
-  }
-`;
-
-const LeftSideBar = styled('div')`
-  width: 298px;
-  background-color: var(--color-bg-panel);
-`;
-
-const RightSideBar = styled('div')`
-  width: 224px;
-  background-color: var(--color-bg-panel);
-`;
 
 const Layout = ({ children, location }) => (
   <ThemeProvider location={location}>
     <MDXProvider components={mdxComponents}>
-      <Wrapper>
-        <LeftSideBar className={'hiddenMobile'}>
-          <Sidebar location={location} />
-        </LeftSideBar>
-        {config.sidebar.title ? (
-          <div
-            className={'sidebarTitle sideBarShow'}
-            dangerouslySetInnerHTML={{ __html: config.sidebar.title }}
-          />
-        ) : null}
-        <Content>
-          <MaxWidth>{children}</MaxWidth>
-        </Content>
-        <RightSideBar className={'hiddenMobile'}>
-          <RightSidebar location={location} />
-        </RightSideBar>
-      </Wrapper>
+      <Container as="main" fluid style={{ marginTop: "1rem" }}>
+        <Row className="main-container">
+          <Navbar as="aside" className={"col-md-2 left-sidebar sticky-md-top"}>
+            <Sidebar location={location} />
+          </Navbar>
+          <article className={"col-md-8"}>
+            <ScrollSpy scrollThrottle={200} offsetTop={200} offsetBottom={-300}>
+              {children}
+            </ScrollSpy>
+            <footer>
+              <span className={"text-muted text-center"}>2022 © AtHeartEngineer</span>
+            </footer>
+          </article>
+          <Navbar as="aside" className={"col-md-2 right-sidebar sticky-md-top"} id="scrollspy-nav">
+            <div className={"right-sidebar-title"}>Contents</div>
+            <li className={"nav-item"}>
+              <a href="#gatsby-focus-wrapper" className={"nav-link"}>Top</a>
+            </li>
+            <RightSidebar location={location} />
+          </Navbar>
+        </Row>
+      </Container>
     </MDXProvider>
-  </ThemeProvider>
+
+  </ThemeProvider >
 );
 
 export default Layout;

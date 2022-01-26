@@ -5,12 +5,12 @@ import TreeNode from './treeNode';
 const calculateTreeData = edges => {
   const originalData = config.sidebar.ignoreIndex
     ? edges.filter(
-        ({
-          node: {
-            fields: { slug },
-          },
-        }) => slug !== '/'
-      )
+      ({
+        node: {
+          fields: { slug },
+        },
+      }) => slug !== '/'
+    )
     : edges;
 
   const tree = originalData.reduce(
@@ -97,7 +97,7 @@ const calculateTreeData = edges => {
     }
     // sort items alphabetically.
     prevItems.map(item => {
-      item.items = item.items.sort(function(a, b) {
+      item.items = item.items.sort(function (a, b) {
         if (a.label < b.label) return -1;
         if (a.label > b.label) return 1;
         return 0;
@@ -140,7 +140,8 @@ const Tree = ({ edges }) => {
 
   return (
     <TreeNode
-      className={`${config.sidebar.frontLine ? 'showFrontLine' : 'hideFrontLine'} firstLevel`}
+      className={''}
+      firstLevel={true}
       setCollapsed={toggle}
       collapsed={collapsed}
       {...treeData}

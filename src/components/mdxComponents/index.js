@@ -25,14 +25,19 @@ const appendString = (children) => {
   }
 };
 
-export default {
-  h1: (props) => (
-    <h1
-      className="heading1"
-      id={appendString(props.children).replace(/\s+/g, '').toLowerCase()}
-      {...props}
-    />
-  ),
+let _id = null;
+
+let mdx = {
+  h1: (props) => {
+    _id = appendString(props.children).replace(/\s+/g, '').toLowerCase()
+    return (
+      <h1
+        className="heading1"
+        id={_id}
+        {...props}
+      />
+    )
+  },
   h2: (props) => (
     <h2
       className="heading2"
@@ -68,7 +73,7 @@ export default {
       {...props}
     />
   ),
-  p: (props) => <p className="paragraph" {...props} />,
+  p: (props) => <p className="paragraph" {...props} id={_id} />,
   pre: (props) => (
     <StyledPre>
       <pre {...props} />
@@ -82,3 +87,5 @@ export default {
   // TODO add `li`
   // TODO add `table`
 };
+
+export default mdx;

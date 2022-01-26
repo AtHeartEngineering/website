@@ -18,7 +18,7 @@ export default class HTML extends React.Component {
             <meta property="twitter:image" content={config.siteMetadata.ogImage} />
           ) : null}
           {config.siteMetadata.favicon ? (
-            <link rel="shortcut icon" type="image/svg" href={config.siteMetadata.favicon} />
+            <link rel="shortcut icon" type="image/png" href={config.siteMetadata.favicon} />
           ) : null}
           <noscript key="noscript"></noscript>
           {this.props.headComponents}
@@ -27,21 +27,6 @@ export default class HTML extends React.Component {
           {this.props.preBodyComponents}
           <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}
-          <script
-            defer
-            dangerouslySetInnerHTML={{
-              __html: `
-            function navBarClose() {
-              document.getElementById("navbar").classList.toggle("responsive");
-            }
-            document.addEventListener('click',function(e){
-              if(e.target && e.target.tagName.toLowerCase() === 'a'){
-                navBarClose();
-              }
-           });
-            `,
-            }}
-          />
         </body>
       </html>
     );

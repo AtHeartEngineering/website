@@ -3,8 +3,10 @@ import OpenedSvg from '../images/opened';
 import ClosedSvg from '../images/closed';
 import config from '../../../config';
 import Link from '../link';
+import { Dropdown } from 'react-bootstrap';
+import { divide } from 'lodash';
 
-const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, ...rest }) => {
+const TreeNode = ({ className = '', firstLevel, setCollapsed, collapsed, url, title, items, ...rest }) => {
   const isCollapsed = collapsed[url];
 
   const collapse = () => {
@@ -18,38 +20,69 @@ const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, 
   if (typeof document != 'undefined') {
     location = document.location;
   }
+
   const active =
     location && (location.pathname === url || location.pathname === config.gatsby.pathPrefix + url);
 
   const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
 
-  return (
-    <li className={calculatedClassName}>
-      {title && (
-        <Link to={url}>
-          {title}
-          {!config.sidebar.frontLine && title && hasChildren ? (
-            <button onClick={collapse} aria-label="collapse" className="collapser">
-              {!isCollapsed ? <OpenedSvg /> : <ClosedSvg />}
-            </button>
-          ) : null}
-        </Link>
-      )}
+  if (firstLevel) {
+    return (
+      <ul className={calculatedClassName + ' firstlevel nav nav-pills flex-column mb-auto'}>
+        {title && (
+          <Link to={url}>
+            {title}
+            {title && hasChildren ? (
+              <button onClick={collapse} aria-label="collapse" className="collapser">
+                {!isCollapsed ? <OpenedSvg /> : <ClosedSvg />}
+              </button>
+            ) : null}
+          </Link>
+        )}
 
-      {!isCollapsed && hasChildren ? (
-        <ul>
-          {items.map((item, index) => (
-            <TreeNode
-              key={item.url + index.toString()}
-              setCollapsed={setCollapsed}
-              collapsed={collapsed}
-              {...item}
-            />
-          ))}
-        </ul>
-      ) : null}
-    </li>
-  );
+        {!isCollapsed && hasChildren ? (
+          <>
+            {items.map((item, index) => (
+              <TreeNode
+                key={item.url + index.toString()}
+                setCollapsed={setCollapsed}
+                collapsed={collapsed}
+                {...item}
+              />
+            ))}
+          </>
+        ) : null}
+      </ul>
+    )
+  } else {
+    return (
+      <li className={calculatedClassName + ' nav-item'}>
+        {title && (
+          <Link to={url} className="nav-link">
+            {title}
+            {title && hasChildren ? (
+              <button onClick={collapse} aria-label="collapse" className="collapser">
+                {!isCollapsed ? <OpenedSvg /> : <ClosedSvg />}
+              </button>
+            ) : null}
+          </Link>
+        )}
+
+        {!isCollapsed && hasChildren ? (
+          <Dropdown>
+            {items.map((item, index) => (
+              <TreeNode
+                key={item.url + index.toString()}
+                setCollapsed={setCollapsed}
+                collapsed={collapsed}
+                {...item}
+              />
+            ))}
+          </Dropdown>
+        ) : null}
+      </li>
+    );
+  }
 };
 
 export default TreeNode;

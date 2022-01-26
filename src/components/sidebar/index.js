@@ -6,6 +6,7 @@ import { ExternalLink } from 'react-feather';
 import config from '../../../config';
 
 // eslint-disable-next-line no-unused-vars
+
 const ListItem = styled(({ className, active, level, ...props }) => {
   return (
     <li className={className}>
@@ -14,74 +15,7 @@ const ListItem = styled(({ className, active, level, ...props }) => {
       </a>
     </li>
   );
-})`
-  list-style: none;
-
-  a {
-    color: var(--color-text);
-    text-decoration: none;
-    font-weight: ${({ level }) => (level === 0 ? 700 : 400)};
-    padding: 0.45rem 0 0.45rem ${(props) => 2 + (props.level || 0) * 1}rem;
-    display: block;
-    position: relative;
-
-    &:hover {
-      color: var(--color-primary) !important;
-    }
-
-    ${(props) =>
-    props.active &&
-    `background-color: #fff; `} // external link icon
-    svg {
-      float: right;
-      margin-right: 1rem;
-    }
-  }
-`;
-
-const Sidebar = styled('aside')`
-  width: 100%;
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
-  padding-left: 0px;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: sticky;
-  top: 0;
-  padding-right: 0;
-
-  @media only screen and (max-width: 1023px) {
-    width: 100%;
-    /* position: relative; */
-    height: 100vh;
-  }
-
-  @media (min-width: 767px) and (max-width: 1023px) {
-    padding-left: 0;
-  }
-
-  @media only screen and (max-width: 767px) {
-    padding-left: 0px;
-    height: auto;
-  }
-`;
-
-const Divider = styled((props) => (
-  <li {...props}>
-    <hr />
-  </li>
-))`
-  list-style: none;
-  padding: 1.5rem 0;
-
-  hr {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-`;
+})``;
 
 const SidebarLayout = ({ location }) => (
   <StaticQuery
@@ -101,28 +35,28 @@ const SidebarLayout = ({ location }) => (
     `}
     render={({ allMdx }) => {
       return (
-        <Sidebar>
-          {config.sidebar.title ? (
-            <div
-              className={'sidebarTitle hiddenMobile'}
-              dangerouslySetInnerHTML={{ __html: config.sidebar.title }}
-            />
-          ) : null}
-          <ul className={'sideBarUL'}>
+        <>
+          <div className="group">
+            <div className={'sidebar-title'}>Here Be Treasures</div>
             <Tree edges={allMdx.edges} />
-            {config.sidebar.links && config.sidebar.links.length > 0 && <Divider />}
-            {config.sidebar.links.map((link, key) => {
-              if (link.link !== '' && link.text !== '') {
-                return (
-                  <ListItem key={key} to={link.link}>
-                    {link.text}
-                    <ExternalLink size={14} />
-                  </ListItem>
-                );
-              }
-            })}
-          </ul>
-        </Sidebar>
+          </div>
+          <div className="group">
+            <div className={'sidebar-title'}>Treasure Maps</div>
+            <ul className={"nav nav-pills flex-column mb-auto"}>
+              {config.sidebar.links.map((link, key) => {
+                if (link.link !== '' && link.text !== '') {
+                  return (
+                    <li className={"nav-item " + key}>
+                      <a href={link.link} target="_blank" className={"nav-link"} aria-current="page">
+                        {link.text}
+                      </a>
+                    </li>
+                  );
+                }
+              })}
+            </ul>
+          </div>
+        </>
       );
     }}
   />

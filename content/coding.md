@@ -1,26 +1,18 @@
 ---
-title: "Coding"
-metaTitle: "Syntax Highlighting is the meta title tag for this page"
-metaDescription: "This is the meta description for this page"
+title: 'Coding'
+metaTitle: ''
+metaDescription: ''
 ---
 
-The following is a code block with JavaScript language syntax highlighting.
+## Code Snippets, Reference, Tricks, and Notes
 
 ```javascript
-import React from 'react';
+let code = [];
+code.append('colors');
 ```
 
-Supports multiple languages.
-
-The following is a code block with diff. Lines with `+` highlighted in green shade indicating an addition. Lines with `-` highlighted in red shade indicating a deletion.
-
-```javascript
-- const data = ['1','2'];
-+ const data = [1,2];
-```
-
-## Live Editing example
+## Live Editing example so I don't forget how to do this later
 
 ```javascript react-live=true
-<button className={'btn btn-default'}>Change my text</button>
+<button className={'btn  mx-auto btn-danger d-flex'}>This is a real button</button>
 ```

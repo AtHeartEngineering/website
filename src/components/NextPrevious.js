@@ -1,7 +1,17 @@
 import * as React from 'react';
 import Link from './link';
+import styled from '@emotion/styled';
 
-import { StyledNextPrevious } from './styles/PageNavigationButtons';
+const StyledNextPrevious = styled('div')`
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+  display: grid;
+  grid-template-rows: auto;
+  column-gap: 24px;
+  grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+`;
+
 
 const NextPrevious = ({ mdx, nav }) => {
   let currentIndex;

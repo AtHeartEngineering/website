@@ -8,10 +8,6 @@ const darkTheme = {
   ...baseTheme,
   colors: {
     background: 'var(--color-bg-text)',
-    heading: '#fff',
-    text: '#fff',
-    preFormattedText: '#000',
-    link: '#1ED3C6',
   },
 };
 

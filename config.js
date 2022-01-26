@@ -9,18 +9,12 @@ const config = {
     logo: 'https://s3.amazonaws.com/atheart.engineering/AtHeartEngineerLogo_small.png',
     logoLink: 'https://atheart.engineering',
     title:
-      "AtHeart.Engineering",
+      "AtHeart.Engineer(ing)",
     githubUrl: 'https://github.com/AtHeartEngineering/website',
     helpUrl: 'help url',
     tweetText: 'tweet text',
-    social: `<li>
-		    <a href="https://twitter.com/AtHeartEngineer" target="_blank" rel="noopener">
-		      <div class="twitterBtn">
-		        <img src='https://s3.amazonaws.com/atheart.engineering/twitter.svg' alt={'Twitter'}/>
-		      </div>
-		    </a>
-		  </li>`,
-    links: [{ text: 'Github', link: 'https://github.com/AtHeartEngineer' }, { text: 'Twitter', link: 'https://twitter.com/AtHeartEngineer' }],
+    social: ``,
+    links: [{ text: 'Youtube', link: 'https://youtube.com/atheartengineer' }, { text: 'Github', link: 'https://github.com/AtHeartEngineer' }, { text: 'Twitter', link: 'https://twitter.com/AtHeartEngineer' }],
     search: {
       enabled: false,
       indexName: '',
@@ -41,28 +35,28 @@ const config = {
     frontline: false,
     ignoreIndex: false,
     title:
-      "Here Be Navigation",
+      "Here Be Treasures",
   },
   siteMetadata: {
     title: 'AtHeart.Engineering',
     description: 'A place for my work, my ideas, and my musings',
     ogImage: null,
     docsLocation: 'https://github.com/AtHeartEngineering/website/tree/master/content',
-    favicon: 'src/logo.png',
+    favicon: 'logo.png',
   },
   pwa: {
-    enabled: false, // disabling this will also remove the existing service worker.
+    enabled: true, // disabling this will also remove the existing service worker.
     manifest: {
       name: 'AtHeart.Engineer(ing)',
       short_name: 'atheartengineering',
       start_url: '/',
-      background_color: '#6b37bf',
-      theme_color: '#6b37bf',
+      background_color: '#ff7575',
+      theme_color: '#ff7575',
       display: 'standalone',
       crossOrigin: 'use-credentials',
       icons: [
         {
-          src: 'src/logo.png',
+          src: 'logo.png',
           sizes: `512x512`,
           type: `image/png`,
         },
