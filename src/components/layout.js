@@ -33,7 +33,6 @@ const Layout = ({ children, location }) => (
         </Row>
       </Container>
     </MDXProvider>
-
   </ThemeProvider >
 );
 
