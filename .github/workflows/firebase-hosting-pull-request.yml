@@ -12,12 +12,12 @@ jobs:
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v1
         with:
-          #mdbook-version: '0.4.10'
           mdbook-version: 'latest'
-
       - run: mdbook build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ATHEARTENGINEERING }}'
           projectId: atheartengineering
+          expires: 7d
+          channelId: preview_pr
