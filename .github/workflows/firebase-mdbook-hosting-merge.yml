@@ -25,4 +25,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ATHEARTENGINEERING }}'
           projectId: atheartengineering
+          expires: 7d
 
