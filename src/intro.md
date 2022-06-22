@@ -16,9 +16,9 @@ The logo was made by someone on fiverr, it generally gets across the point. I ha
 
 ## This site
 
-This is a [Gatsby](https://www.gatsbyjs.com/) site that was created with the [gatsby-gitbook-starter](https://www.gatsbyjs.com/starters/hasura/gatsby-gitbook-starter) and then was highly butchered into what you see now.
+This is a [mdbook](https://rust-lang.github.io/mdBook/index.html/) site that I've themed. I started out with gatsby, but it was just a mess, the code wasn't clean, the process wasn't clean, and it was took much for just getting words out there.
 
-It is a staticly generated react site, which autobuilds using github's actions and then deploys to google cloud hosting.
+It is a staticly generated, which autobuilds using github's actions and then deploys to google cloud hosting.
 
 # Plan
 
@@ -29,6 +29,7 @@ It is a staticly generated react site, which autobuilds using github's actions a
   - Software Development
     - Fullstack
     - Decentralized
+    - ML
     - Embedded
   - Design
     - Graphic Design (particularly video and/or 3D)
@@ -42,7 +43,7 @@ It is a staticly generated react site, which autobuilds using github's actions a
   - about hobbies
   - teaching stuff I'm interested in
   - for fun
-  - an excuse to learn software like premiere & blender
+  - an excuse to play with software like after effects & blender
 - Profit?
 
 # Todo list

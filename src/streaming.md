@@ -4,12 +4,12 @@
 
 ## Streaming Schedule
 
-Tuesday's and Thursday's from 6-9pm EST
+Tuesday's and Thursday's from 6-9pm EST...ish
 
 ## Streaming Friends
 
-[https://www.twitch.tv/teendawg6969 ](https://www.twitch.tv/teendawg6969)
+[TeenDawg6969](https://www.twitch.tv/teendawg6969)
 
-[https://www.twitch.tv/adawgshizzy](https://www.twitch.tv/a_dawg_shizzy)
+[ADawgShizzy](https://www.twitch.tv/a_dawg_shizzy)
 
-[https://www.twitch.tv/themorphes](https://www.twitch.tv/themorphes)
+[The Morphes](https://www.twitch.tv/themorphes)
