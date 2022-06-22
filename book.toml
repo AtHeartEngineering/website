@@ -1,0 +1,17 @@
+[book]
+authors = ["AtHeartEngineer"]
+language = "en"
+multilingual = false
+src = "src"
+title = "AtHeart.Engineering"
+
+[build]
+build-dir = "public"
+
+[output.html]
+default-theme = "coal"
+preferred-dark-theme = "coal"
+git-repository-url = "https://github.com/atheartengineering/website"
+
+[output.html.search]
+limit-results = 15
