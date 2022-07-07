@@ -5,11 +5,6 @@ multilingual = false
 src = "src"
 title = "AtHeart.Engineering"
 
-[preprocessor.toc]
-command = "mdbook-toc"
-marker = "[[_TOC_]]"
-renderer = ["html"]
-
 [build]
 build-dir = "public"
 
