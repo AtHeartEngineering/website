@@ -21,7 +21,7 @@
 .css .hljs-id,
 .css .hljs-class,
 .css .hljs-pseudo {
-  color: #cc6666;
+  color: #bb6644;
 }
 
 /* Tomorrow Orange */
@@ -32,7 +32,7 @@
 .hljs-literal,
 .hljs-params,
 .hljs-constant {
-  color: #de935f;
+  color: #ffa552;
 }
 
 /* Tomorrow Yellow */
@@ -79,10 +79,9 @@
 .hljs {
   display: block;
   overflow-x: auto;
-  background: #1d1f21;
+  background: hsl(200, 0%, 10%);
   color: #c5c8c6;
-  padding: 0.5em;
-  -webkit-text-size-adjust: none;
+  border-radius: 3rem;
 }
 
 .coffeescript .javascript,

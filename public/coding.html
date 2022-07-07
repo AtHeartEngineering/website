@@ -7,7 +7,9 @@
 
 
         <!-- Custom HTML head -->
-        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,300&family=Oxanium:wght@500&family=Source+Code+Pro&display=swap" rel="stylesheet">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,15 +83,15 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Hey</a></li><li class="chapter-item expanded "><a href="streaming.html"><strong aria-hidden="true">2.</strong> Streaming Info</a></li><li class="chapter-item expanded "><a href="coding.html" class="active"><strong aria-hidden="true">3.</strong> Coding</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="coding/colors.html"><strong aria-hidden="true">3.1.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">4.</strong> Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tools/aspect_ratio_calc.html"><strong aria-hidden="true">4.1.</strong> Aspect Ratio Calculator</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Hey</a></li><li class="chapter-item expanded "><a href="streaming.html"><strong aria-hidden="true">2.</strong> Twitch</a></li><li class="chapter-item expanded "><a href="coding.html" class="active"><strong aria-hidden="true">3.</strong> Coding</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="coding/colors.html"><strong aria-hidden="true">3.1.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">4.</strong> Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tools/aspect_ratio_calc.html"><strong aria-hidden="true">4.1.</strong> Aspect Ratio Calculator</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
+                      <div class="page">
 
-            <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,10 +102,7 @@
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Dark</button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
@@ -146,15 +145,13 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="coding"><a class="header" href="#coding">Coding</a></h1>
-<pre><code class="language-js">
-function test(params) {
+<pre><code class="language-js">function test(params) {
   // Test Code for syntax highlighting theming
   if (params.length === 0) {
     return 'no params';
   }
   return params.join(' ');
 }
-
 </code></pre>
 
                     </main>
@@ -186,22 +183,6 @@ function test(params) {
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
