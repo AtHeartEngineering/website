@@ -4,9 +4,9 @@
 
 ## Streaming Schedule
 
-Tuesday's and Thursday's from 6-9pm EST...ish
+Tuesday's and Thursday's evenings EST...ish, life gets busy.
 
-## Streaming Friends
+## Who I'm usually streaming with
 
 [TeenDawg6969](https://www.twitch.tv/teendawg6969)
 

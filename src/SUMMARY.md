@@ -1,7 +1,7 @@
 # Summary
 
 - [Hey](./intro.md)
-- [Streaming Info](./streaming.md)
+- [Twitch](./streaming.md)
 - [Coding](./coding.md)
   - [Colors](./coding/colors.md)
 - [Tools](./tools.md)

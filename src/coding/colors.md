@@ -17,7 +17,7 @@ These are some common colors I use in CSS, this is mostly a quick reference for 
       font-size: 1rem;
     }
   </style>
-  <div class="color-example" style="background-color: rgba(0, 0, 0, 0.98)">
+  <div class="color-example" style="background-color: rgba(0, 0, 0, 0.98); color: white">
     blackish
   </div>
   <div class="color-example" style="background-color: rgba(242, 242, 242, 0.6); color: black">
@@ -29,7 +29,7 @@ These are some common colors I use in CSS, this is mostly a quick reference for 
   <div class="color-example" style="background-color: rgb(225, 225, 225); color: black">
     whitish
   </div>
-  <div class="color-example" style="background-color: rgb(108, 149, 153)">
+  <div class="color-example" style="background-color: rgb(108, 149, 153); color: white">
     steel
   </div>
   <div class="color-example" style="background-color: #59f02b; color: black">
@@ -41,16 +41,16 @@ These are some common colors I use in CSS, this is mostly a quick reference for 
   <div class="color-example" style="background-color: #61f291; color: black">
     green-light
   </div>
-  <div class="color-example" style="background-color: #45a164">
+  <div class="color-example" style="background-color: #45a164; color: white">
     jade
   </div>
-  <div class="color-example" style="background-color: #405c37">
+  <div class="color-example" style="background-color: #405c37; color: white">
     hunter-green
   </div>
-  <div class="color-example" style="background-color: #315db5">
+  <div class="color-example" style="background-color: #315db5; color: white">
     dark-blue
   </div>
-  <div class="color-example" style="background-color: #477eed">
+  <div class="color-example" style="background-color: #477eed; color: white">
     blue
   </div>
   <div class="color-example" style="background-color: #53d3e0; color: black">
@@ -65,13 +65,13 @@ These are some common colors I use in CSS, this is mostly a quick reference for 
   <div class="color-example" style="background-color: #b4bbff; color: black">
     violet-light
   </div>
-  <div class="color-example" style="background-color: #cc71c2">
+  <div class="color-example" style="background-color: #cc71c2; color: white">
     mauve
   </div>
-  <div class="color-example" style="background-color: #bf2c7f">
+  <div class="color-example" style="background-color: #bf2c7f; color: white">
     pink
   </div>
-  <div class="color-example" style="background-color: #b638f5">
+  <div class="color-example" style="background-color: #b638f5; color: white">
     purple
   </div>
   <div class="color-example" style="background-color: #ff7575; color: black">
@@ -80,10 +80,10 @@ These are some common colors I use in CSS, this is mostly a quick reference for 
   <div class="color-example" style="background-color: #ffb585; color: black">
     sunset-light
   </div>
-  <div class="color-example" style="background-color: #fa5f5f">
+  <div class="color-example" style="background-color: #fa5f5f; color: white">
     orangered
   </div>
-  <div class="color-example" style="background-color: #de1a1a">
+  <div class="color-example" style="background-color: #de1a1a; color: white">
     max-red
   </div>
   <div class="color-example" style="background-color: #fad14b; color: black">
