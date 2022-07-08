@@ -83,16 +83,21 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Hey</a></li><li class="chapter-item expanded "><a href="streaming.html"><strong aria-hidden="true">2.</strong> Twitch</a></li><li class="chapter-item expanded "><a href="coding.html"><strong aria-hidden="true">3.</strong> Coding</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="coding/colors.html"><strong aria-hidden="true">3.1.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">4.</strong> Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tools/aspect_ratio_calc.html"><strong aria-hidden="true">4.1.</strong> Aspect Ratio Calculator</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Hey</a></li><li class="chapter-item expanded "><a href="streaming.html"><strong aria-hidden="true">2.</strong> Twitch</a></li><li class="chapter-item expanded "><a href="coding.html"><strong aria-hidden="true">3.</strong> Coding</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="coding/bg.html"><strong aria-hidden="true">3.1.</strong> Background</a></li><li class="chapter-item expanded "><a href="coding/colors.html"><strong aria-hidden="true">3.2.</strong> Colors</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">4.</strong> Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tools/aspect_ratio_calc.html"><strong aria-hidden="true">4.1.</strong> Aspect Ratio Calculator</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
-                      <div class="page">
+          <canvas id="bg-canvas" style="position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;"></canvas>            <div class="page">
 
                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -225,6 +230,92 @@
   }
   return params.join(' ');
 }
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="background-generation"><a class="header" href="#background-generation">Background generation</a></h1>
+<p>This is play</p>
+<pre><code class="language-js">
+let NUM_BITS = 137;
+let HUE_START = 120;
+let HUE_END = 200;
+let canvas = document.getElementById('bg-canvas');
+let ctx = canvas.getContext('2d');
+let width = canvas.width;
+let height = canvas.height;
+
+let bits = [];
+
+// Event handler to resize the canvas when the document view is changed
+window.addEventListener('resize', resizeCanvas, false);
+
+function generateBit() {
+  let hue = randomRange(HUE_START, HUE_END)
+  let lightness = randomRange(33, 67);
+  let saturation = 100;
+  let bit = {
+    x: randomRange(0, width),
+    y: randomRange(0, height),
+    size: Math.random() + 0.5,
+    color: &quot;hsl(&quot; + hue + &quot;, &quot; + saturation + &quot;%, &quot; + lightness + &quot;%)&quot;,
+    angle: randomRange(0, 135) + 202 % 360
+  }
+  bits.push(
+    bit
+  );
+  return bit;
+}
+
+function generateBits() {
+  for (let i = 0; i &lt; NUM_BITS; i++) {
+    generateBit();
+  }
+}
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  width = canvas.width;
+  height = canvas.height;
+  bits = [];
+  generateBits();
+}
+
+function randomRange(min = 0, max = 360) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+function move(x, y, angle) {
+  x = x + Math.cos(angle * Math.PI / 180);
+  y = y + Math.sin(angle * Math.PI / 180);
+
+  if (x &lt; 0 || x &gt; width || y &lt; 0 || y &gt; height) {
+    return false;
+  }
+  return {
+    x: x,
+    y: y
+  };
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i &lt; bits.length; i++) {
+    let bit = bits[i];
+    ctx.fillStyle = bit.color;
+    ctx.fillRect(bit.x, bit.y, bit.size, bit.size);
+    let newPos = move(bit.x, bit.y, bit.angle);
+    if (newPos) {
+      bit.x = newPos.x;
+      bit.y = newPos.y;
+    } else {
+      bits.splice(i, 1);
+      generateBit()
+    }
+  }
+}
+
+resizeCanvas();
+setInterval(draw, 50);
+
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="css-colors"><a class="header" href="#css-colors">CSS Colors</a></h1>
 <p>These are some common colors I use in CSS, this is mostly a quick reference for myself. I imagine this list will grow with time.</p>
@@ -362,6 +453,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
@@ -379,6 +486,7 @@
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+        <script type="text/javascript" src="custom.js"></script>
 
         <script type="text/javascript">
         window.addEventListener('load', function() {

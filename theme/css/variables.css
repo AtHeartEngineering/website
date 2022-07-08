@@ -1,4 +1,3 @@
-
 /* Globals */
 
 :root {
@@ -13,16 +12,16 @@
 .coal {
   --bg: hsl(29, 0%, 5%);
   --fg: #eee;
-  --header-font: 'Oxanium', "Open Sans", sans-serif;
+  --header-font: "Oxanium", "Open Sans", sans-serif;
   --regular-font: "Montserrat", "Open Sans", sans-serif;
-  --code-font: "Source Code Pro", "Ubuntu Mono", monospace !important;;
+  --code-font: "Source Code Pro", "Ubuntu Mono", monospace !important;
 
   --header-color: hsl(29, 0%, 70%);
 
   /*--sidebar-bg: #222;*/
-  --sidebar-bg: hsl(29, 0%, 10%);
+  --sidebar-bg: hsla(29, 0%, 10%, 33%);
   --sidebar-fg: #aaa;
-  --sidebar-font: 'Oxanium', "Open Sans", sans-serif;
+  --sidebar-font: "Oxanium", "Open Sans", sans-serif;
   --sidebar-non-existant: #555;
   --sidebar-active: #ffa552;
   --sidebar-spacer: #444;
@@ -67,7 +66,7 @@
   --sidebar-active: #1f1fff;
   --sidebar-spacer: #f4f4f4;
 
-  --scrollbar: #8F8F8F;
+  --scrollbar: #8f8f8f;
 
   --icons: #747474;
   --icons-hover: #000000;
@@ -99,42 +98,42 @@
 
 @media (prefers-color-scheme: dark) {
   .light.no-js {
-      --bg: hsl(200, 7%, 8%);
-      --fg: #98a3ad;
+    --bg: hsl(200, 7%, 8%);
+    --fg: #98a3ad;
 
-      --sidebar-bg: #292c2f;
-      --sidebar-fg: #a1adb8;
-      --sidebar-non-existant: #505254;
-      --sidebar-active: #3473ad;
-      --sidebar-spacer: #393939;
+    --sidebar-bg: #292c2f;
+    --sidebar-fg: #a1adb8;
+    --sidebar-non-existant: #505254;
+    --sidebar-active: #3473ad;
+    --sidebar-spacer: #393939;
 
-      --scrollbar: var(--sidebar-fg);
+    --scrollbar: var(--sidebar-fg);
 
-      --icons: #43484d;
-      --icons-hover: #b3c0cc;
+    --icons: #43484d;
+    --icons-hover: #b3c0cc;
 
-      --links: #2b79a2;
+    --links: #2b79a2;
 
-      --inline-code-color: #c5c8c6;
+    --inline-code-color: #c5c8c6;
 
-      --theme-popup-bg: #141617;
-      --theme-popup-border: #43484d;
-      --theme-hover: #1f2124;
+    --theme-popup-bg: #141617;
+    --theme-popup-border: #43484d;
+    --theme-hover: #1f2124;
 
-      --quote-bg: hsl(234, 21%, 18%);
-      --quote-border: hsl(234, 21%, 23%);
+    --quote-bg: hsl(234, 21%, 18%);
+    --quote-border: hsl(234, 21%, 23%);
 
-      --table-border-color: hsl(200, 7%, 13%);
-      --table-header-bg: hsl(200, 7%, 28%);
-      --table-alternate-bg: hsl(200, 7%, 11%);
+    --table-border-color: hsl(200, 7%, 13%);
+    --table-header-bg: hsl(200, 7%, 28%);
+    --table-alternate-bg: hsl(200, 7%, 11%);
 
-      --searchbar-border-color: #aaa;
-      --searchbar-bg: #b7b7b7;
-      --searchbar-fg: #000;
-      --searchbar-shadow-color: #aaa;
-      --searchresults-header-fg: #666;
-      --searchresults-border-color: #98a3ad;
-      --searchresults-li-bg: #2b2b2f;
-      --search-mark-bg: #355c7d;
+    --searchbar-border-color: #aaa;
+    --searchbar-bg: #b7b7b7;
+    --searchbar-fg: #000;
+    --searchbar-shadow-color: #aaa;
+    --searchresults-header-fg: #666;
+    --searchresults-border-color: #98a3ad;
+    --searchresults-li-bg: #2b2b2f;
+    --search-mark-bg: #355c7d;
   }
 }

@@ -9,6 +9,7 @@ title = "AtHeart.Engineering"
 build-dir = "public"
 
 [output.html]
+additional-js = ["custom.js"]
 default-theme = "coal"
 preferred-dark-theme = "coal"
 git-repository-url = "https://github.com/atheartengineering/website"
