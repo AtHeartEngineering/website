@@ -1,6 +1,6 @@
 # About Me (AtHeartEngineer)
 
-<i>This is really just filler while I work on the rest of the site.</i>
+<i>Everything is a work in progress</i>
 
 ## The Name
 
@@ -48,14 +48,3 @@ It is a staticly generated, which autobuilds using github's actions and then dep
   - an excuse to play with software like after effects & blender
 - Profit?
 
-# Todo list
-
-## Site rework
-
-- Tagging / date handling/display
-- Theme rework, simplify further, less flashy
-
-## Content
-
-- Resolution/aspect ratio calculator
-- Buttons to add all eth l2s and test nets

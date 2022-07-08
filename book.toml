@@ -7,12 +7,17 @@ title = "AtHeart.Engineering"
 
 [build]
 build-dir = "public"
+create-missing = true
 
 [output.html]
-additional-js = ["./src/custom.js"]
+additional-js = ["./src/bg.js"]
 default-theme = "coal"
 preferred-dark-theme = "coal"
 git-repository-url = "https://github.com/atheartengineering/website"
+
+[output.html.fold]
+enable = true
+level = 0
 
 [output.html.search]
 limit-results = 15
