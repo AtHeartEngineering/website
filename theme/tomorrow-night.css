@@ -79,9 +79,9 @@
 .hljs {
   display: block;
   overflow-x: auto;
-  background: hsl(200, 0%, 10%);
+  background: hsla(0, 0%, 10%, 75%);
   color: #c5c8c6;
-  border-radius: 3rem;
+  border-radius: 1.25rem;
 }
 
 .coffeescript .javascript,

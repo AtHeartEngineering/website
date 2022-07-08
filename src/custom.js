@@ -1,8 +1,3 @@
-# Background Generation
-
-This is fun
-
-```js
 const DENSITY = 100; // lower = more dense
 const HUE_START = 120;
 const HUE_END = 230;
@@ -93,4 +88,3 @@ function resizeCanvas() {
 window.addEventListener('resize', resizeCanvas, false);
 resizeCanvas();
 setInterval(draw, 20);
-```

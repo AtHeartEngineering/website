@@ -231,42 +231,81 @@
   return params.join(' ');
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="background-generation"><a class="header" href="#background-generation">Background generation</a></h1>
-<p>This is play</p>
-<pre><code class="language-js">
-let NUM_BITS = 137;
-let HUE_START = 120;
-let HUE_END = 200;
+<div style="break-before: page; page-break-before: always;"></div><h1 id="background-generation"><a class="header" href="#background-generation">Background Generation</a></h1>
+<p>This is fun</p>
+<pre><code class="language-js">const DENSITY = 100; // lower = more dense
+const HUE_START = 120;
+const HUE_END = 230;
+const MAX_SIZE = 3;
+const MIN_LIGHT = 33;
+const MAX_LIGHT = 67;
+const MIN_TRANSPARENCY = 10;
+const MAX_TRANSPARENCY = 60;
+const SATURATION = 100;
+const START_ANGLE = 240;
+const END_ANGLE = 300;
+const MAX_SPEED = 20;
+
 let canvas = document.getElementById('bg-canvas');
 let ctx = canvas.getContext('2d');
 let width = canvas.width;
 let height = canvas.height;
-
+let num_bits;
 let bits = [];
 
-// Event handler to resize the canvas when the document view is changed
-window.addEventListener('resize', resizeCanvas, false);
-
-function generateBit() {
-  let hue = randomRange(HUE_START, HUE_END)
-  let lightness = randomRange(33, 67);
-  let saturation = 100;
-  let bit = {
-    x: randomRange(0, width),
-    y: randomRange(0, height),
-    size: Math.random() + 0.5,
-    color: &quot;hsl(&quot; + hue + &quot;, &quot; + saturation + &quot;%, &quot; + lightness + &quot;%)&quot;,
-    angle: randomRange(0, 135) + 202 % 360
+class Bit {
+  constructor() {
+    this.x = randomRange(0, width);
+    this.y = randomRange(0, height);
+    this.size = randomRange(1, randomRange(1, MAX_SIZE));
+    let hue = randomRange(HUE_START, HUE_END)
+    let light = randomRange(MIN_LIGHT, MAX_LIGHT);
+    let sat = SATURATION;
+    let trans = randomRange(MIN_TRANSPARENCY, MAX_TRANSPARENCY);
+    this.color = &quot;hsla(&quot; + hue + &quot;, &quot; + sat + &quot;%, &quot; + light + &quot;%, &quot; + trans + &quot;%)&quot;;
+    // We want to generate a random angle between 180 and 360
+    // to make most of the bits go up
+    this.angle = randomRange(START_ANGLE, END_ANGLE)
+    this.speed = randomRange(1, MAX_SPEED) * 0.025;
   }
-  bits.push(
-    bit
-  );
-  return bit;
+
+  move() {
+    this.x = this.x + (this.speed * Math.cos(this.angle * Math.PI / 180));
+    this.y = this.y + (this.speed * Math.sin(this.angle * Math.PI / 180));
+    if (this.x &lt; 0) {
+      this.x = width;
+    }
+    if (this.x &gt; width) {
+      this.x = 0;
+    }
+    if (this.y &lt; 0) {
+      this.y = height;
+    }
+    if (this.y &gt; height) {
+      this.y = 0;
+    }
+  }
 }
 
 function generateBits() {
-  for (let i = 0; i &lt; NUM_BITS; i++) {
-    generateBit();
+  for (let i = 0; i &lt; num_bits; i++) {
+    bits.push(new Bit());
+  }
+}
+
+function randomRange(min = 0, max = 360) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i &lt; bits.length; i++) {
+    let bit = bits[i];
+    ctx.fillStyle = bit.color;
+    ctx.beginPath();
+    ctx.arc(bit.x, bit.y, bit.size, 0, 2 * Math.PI);
+    ctx.fill();
+    bit.move();
   }
 }
 
@@ -275,47 +314,15 @@ function resizeCanvas() {
   canvas.height = window.innerHeight;
   width = canvas.width;
   height = canvas.height;
+  num_bits = Math.floor(width * height / DENSITY / DENSITY);
   bits = [];
   generateBits();
 }
 
-function randomRange(min = 0, max = 360) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
-
-function move(x, y, angle) {
-  x = x + Math.cos(angle * Math.PI / 180);
-  y = y + Math.sin(angle * Math.PI / 180);
-
-  if (x &lt; 0 || x &gt; width || y &lt; 0 || y &gt; height) {
-    return false;
-  }
-  return {
-    x: x,
-    y: y
-  };
-}
-
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i &lt; bits.length; i++) {
-    let bit = bits[i];
-    ctx.fillStyle = bit.color;
-    ctx.fillRect(bit.x, bit.y, bit.size, bit.size);
-    let newPos = move(bit.x, bit.y, bit.angle);
-    if (newPos) {
-      bit.x = newPos.x;
-      bit.y = newPos.y;
-    } else {
-      bits.splice(i, 1);
-      generateBit()
-    }
-  }
-}
-
+// Event handler to resize the canvas when the document view is changed
+window.addEventListener('resize', resizeCanvas, false);
 resizeCanvas();
-setInterval(draw, 50);
-
+setInterval(draw, 20);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="css-colors"><a class="header" href="#css-colors">CSS Colors</a></h1>
 <p>These are some common colors I use in CSS, this is mostly a quick reference for myself. I imagine this list will grow with time.</p>
@@ -486,7 +493,7 @@ setInterval(draw, 50);
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript" src="custom.js"></script>
+        <script type="text/javascript" src="./src/custom.js"></script>
 
         <script type="text/javascript">
         window.addEventListener('load', function() {
