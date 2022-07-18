@@ -18,7 +18,7 @@ The logo was made by someone on fiverr, it generally gets across the point. I ha
 
 ## This site
 
-This is a [mdbook](https://rust-lang.github.io/mdBook/index.html/) site that I've themed. I started out with gatsby, but it was just a mess, the code wasn't clean, the process wasn't clean, and it was took much for just getting words out there.
+This is a [mdbook](https://rust-lang.github.io/mdBook/index.html/) site that I've themed. I started out with gatsby, but it was just a mess, the code wasn't clean, the process wasn't clean, and it was too much for just getting words out into the world.
 
 It is a staticly generated, which autobuilds using github's actions and then deploys to google cloud hosting.
 
