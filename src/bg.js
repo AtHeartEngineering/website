@@ -11,10 +11,10 @@ const START_ANGLE = 240;
 const END_ANGLE = 300;
 const MAX_SPEED = 20;
 
-let canvas = document.getElementById('bg-canvas');
-let ctx = canvas.getContext('2d');
-let width = canvas.width;
-let height = canvas.height;
+let bg_canvas = document.getElementById('bg-canvas');
+let bg_ctx = bg_canvas.getContext('2d');
+let width = bg_canvas.width;
+let height = bg_canvas.height;
 let num_bits;
 let bits = [];
 
@@ -63,22 +63,22 @@ function randomRange(min = 0, max = 360) {
 }
 
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  bg_ctx.clearRect(0, 0, bg_canvas.width, bg_canvas.height);
   for (let i = 0; i < bits.length; i++) {
     let bit = bits[i];
-    ctx.fillStyle = bit.color;
-    ctx.beginPath();
-    ctx.arc(bit.x, bit.y, bit.size, 0, 2 * Math.PI);
-    ctx.fill();
+    bg_ctx.fillStyle = bit.color;
+    bg_ctx.beginPath();
+    bg_ctx.arc(bit.x, bit.y, bit.size, 0, 2 * Math.PI);
+    bg_ctx.fill();
     bit.move();
   }
 }
 
 function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  width = canvas.width;
-  height = canvas.height;
+  bg_canvas.width = window.innerWidth;
+  bg_canvas.height = window.innerHeight;
+  width = bg_canvas.width;
+  height = bg_canvas.height;
   num_bits = Math.floor(width * height / DENSITY / DENSITY);
   bits = [];
   generateBits();
