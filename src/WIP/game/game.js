@@ -11,10 +11,18 @@ content_main.insertBefore(game_canvas, content_main.firstChild);
 const game_ctx = game_canvas.getContext('2d');
 
 // Start Game when page is loaded
-
 window.addEventListener('load', function () {
   const game = new Game(game_ctx);
-  game.start();
+  let lastTime = 0; // Starting Time
+  // Animation Loop
+  function animate(timestamp) {
+    const deltaTime = timestamp - lastTime;
+    lastTime = timestamp;
+    game.update(deltaTime);
+    game.draw();
+    requestAnimationFrame(animate);
+  }
+  animate(0)
 });
 
 // Setup Game
@@ -117,8 +125,8 @@ class Environment { }
 class UI { }
 
 class Game {
-  constructor(context) {
-    this.player = new Player(this, "Player 1");
+  constructor(context, player_name = "Player 1") {
+    this.player = new Player(this, player_name);
     this.input_handler = new InputHandler(this);
     this.input = [];
     this.width = WIDTH;
@@ -126,19 +134,16 @@ class Game {
     this.ctx = context;
     this.update_queue = [];
     this.draw_queue = [];
+    this.lastTimestamp = 0
+
     this.game_over = false;
 
     this.update_queue.push(this.player);
     this.draw_queue.push(this.player);
   }
 
-  start() {
-    this.update();
-    this.draw();
-    requestAnimationFrame(() => this.start());
-  }
-
-  update() {
+  // tick
+  update(deltaTime) {
     this.update_queue.forEach((obj) => obj.update());
   }
 

@@ -10,7 +10,7 @@
 /* Themes */
 
 .coal {
-  --bg: hsl(29, 0%, 5%);
+  --bg: transparent;
   --fg: #eee;
   --header-font: "Oxanium", "Open Sans", sans-serif;
   --regular-font: "Montserrat", "Open Sans", sans-serif;
@@ -19,7 +19,7 @@
   --header-color: hsl(29, 0%, 70%);
 
   /*--sidebar-bg: #222;*/
-  --sidebar-bg: hsla(29, 0%, 10%, 33%);
+  --sidebar-bg: transparent;
   --sidebar-fg: #aaa;
   --sidebar-font: "Oxanium", "Open Sans", sans-serif;
   --sidebar-non-existant: #555;
