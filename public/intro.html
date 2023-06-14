@@ -33,7 +33,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body style="background-color: black">
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html" class="active"><strong aria-hidden="true">1.</strong> Hey</a></li><li class="chapter-item "><a href="streaming.html"><strong aria-hidden="true">2.</strong> Twitch</a></li><li class="chapter-item "><a href="coding.html"><strong aria-hidden="true">3.</strong> Coding</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="coding/bg.html"><strong aria-hidden="true">3.1.</strong> Background</a></li><li class="chapter-item "><a href="coding/colors.html"><strong aria-hidden="true">3.2.</strong> Colors</a></li></ol></li><li class="chapter-item "><a href="thoughts.html"><strong aria-hidden="true">4.</strong> Thoughts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="thoughts/mad.html"><strong aria-hidden="true">4.1.</strong> I'm mad</a></li></ol></li><li class="chapter-item "><a href="Todo.html"><strong aria-hidden="true">5.</strong> Todo/WIP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="WIP/game.html"><strong aria-hidden="true">5.1.</strong> Game</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html" class="active"><strong aria-hidden="true">1.</strong> Hey</a></li><li class="chapter-item "><a href="streaming.html"><strong aria-hidden="true">2.</strong> Twitch</a></li><li class="chapter-item "><a href="coding.html"><strong aria-hidden="true">3.</strong> Coding</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="coding/bg.html"><strong aria-hidden="true">3.1.</strong> Background</a></li><li class="chapter-item "><a href="coding/colors.html"><strong aria-hidden="true">3.2.</strong> Colors</a></li><li class="chapter-item "><a href="coding/blocks.html"><strong aria-hidden="true">3.3.</strong> Blocks</a></li></ol></li><li class="chapter-item "><a href="thoughts.html"><strong aria-hidden="true">4.</strong> Thoughts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="thoughts/mad.html"><strong aria-hidden="true">4.1.</strong> I'm mad</a></li></ol></li><li class="chapter-item "><a href="Todo.html"><strong aria-hidden="true">5.</strong> Todo/WIP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="WIP/game.html"><strong aria-hidden="true">5.1.</strong> Game</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -93,7 +93,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                z-index: 0;"></canvas>            <div class="page">
+                z-index: -1;"></canvas>            <div class="page">
 
                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
@@ -223,6 +223,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
