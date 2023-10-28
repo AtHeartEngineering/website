@@ -1,2 +1,0 @@
-# My Thoughts On Things
-

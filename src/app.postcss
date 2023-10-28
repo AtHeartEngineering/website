@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+html,
+body {
+	@apply h-full overflow-hidden;
+}
+
+.gradient-heading {
+	@apply bg-clip-text text-transparent box-decoration-clone;
+	/* Direction */
+	@apply bg-gradient-to-br;
+	/* Color Stops */
+	@apply from-surface-50 via-surface-200 to-surface-50;
+}
+
+.material-symbols-outlined {
+	font-size: 1.2rem;
+	font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+.btn.active {
+	background-color: rgb(var(--color-surface-600));
+	box-shadow: -1px -1px 0px rgba(var(--color-tertiary-500) / 0.75),
+		1px 1px 0px rgba(var(--color-success-400) / 0.75);
+}
+
+.btn:hover,
+.btn:focus,
+.card:hover,
+.card:focus {
+	background-color: rgb(var(--color-surface-900));
+	box-shadow: -1px -1px 0px rgba(var(--color-primary-500) / 0.75),
+		1px 1px 0px rgba(var(--color-tertiary-500) / 0.75);
+}
+
+.btn:hover,
+.btn:focus,
+.card:hover,
+.card:focus,
+.logo:hover,
+.logo:focus {
+	color: rgba(var(--color-surface-50) / 1);
+	text-shadow: -3px -2px 4px rgba(var(--color-primary-500) / 0.75),
+		2px -2px 4px rgba(var(--color-success-500) / 1),
+		0px 4px 4px rgba(var(--color-tertiary-500) / 1);
+}
+
+.app-bar, .card {
+	box-shadow:
+		inset 0px 0px 5px rgb(var(--color-surface-800)) !important;
+}
