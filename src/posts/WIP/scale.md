@@ -1,9 +1,3 @@
----
-title: WIP
-description: About me
-date: '2023-4-14'
-published: true
----
 
 # Scale(s)
 

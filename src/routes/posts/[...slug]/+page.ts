@@ -1,13 +1,15 @@
+import type { Post } from '$lib/types.js'
 import { error } from '@sveltejs/kit'
 
 export async function load({ params }) {
-	console.log('loading post...')
+	console.log(params)
 	try {
-		console.debug('Params', params)
 		const postPath = `../../../posts/${params.slug}.md`
-		console.debug('PostPath', postPath)
-		const post = await import(postPath)
-
+		const post = await import(postPath /* @vite-ignore */)
+		const subfolder = params.slug.split('/')
+		if (subfolder.length > 1) {
+			post.metadata.categories = [subfolder[0], ...(post.metadata.categories || [])]
+		}
 		return {
 			content: post.default,
 			meta: post.metadata

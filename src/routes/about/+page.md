@@ -1,10 +1,3 @@
----
-title: Introduction
-description: About me
-date: '1970-01-01'
-published: true
----
-
 # About Me (AtHeartEngineer)
 
 <i>Everything is a work in progress</i>
@@ -13,13 +6,7 @@ published: true
 
 I chose the username "AtHeartEngineer" not because I consider myself an authority on the subject, or that I have any title of "engineer", I'm self taught and don't proclaim to know the right way to do a lot of things. I chose my psuedonym because it is how I think. I've always been curious of how things work, how they are built, and how they are designed.
 
-## This site
-
-This is a [mdbook](https://rust-lang.github.io/mdBook/index.html/) site that I've themed. I started out with gatsby, but it was just a mess, the code wasn't clean, the process wasn't clean, and it was too much for just getting words out into the world.
-
-It is a staticly generated, which autobuilds using github's actions and then deploys to google cloud hosting.
-
-# Plan
+## The Plan
 
 (In no particular order)
 

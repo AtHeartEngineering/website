@@ -3,4 +3,6 @@
 	export { img }
 </script>
 
-<slot />
+<div id="markdown" class="my-5">
+	<slot />
+</div>

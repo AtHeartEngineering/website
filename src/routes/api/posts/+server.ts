@@ -7,14 +7,17 @@ async function getPosts() {
 
 	for (const path in paths) {
 		const file = paths[path]
-		console.log(path)
 		const slug = path.replace('/src/posts/', '').replace('.md', '')
-		console.log(slug)
 
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
 			const metadata = file.metadata as Omit<Post, 'slug'>
 			const post = { ...metadata, slug } satisfies Post
-			post.published && posts.push(post)
+			const subfolder = slug.split('/')
+			if (subfolder.length > 1) {
+				post.categories = [subfolder[0], ...(post.categories || [])]
+			}
+			console.log(post)
+			posts.push(post)
 		}
 	}
 

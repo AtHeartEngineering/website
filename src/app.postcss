@@ -43,11 +43,66 @@ body {
 .logo:focus {
 	color: rgba(var(--color-surface-50) / 1);
 	text-shadow: -3px -2px 4px rgba(var(--color-primary-500) / 0.75),
-		2px -2px 4px rgba(var(--color-success-500) / 1),
-		0px 4px 4px rgba(var(--color-tertiary-500) / 1);
+		2px -2px 4px rgba(var(--color-success-500) / 1), 0px 4px 4px rgba(var(--color-tertiary-500) / 1);
 }
 
-.app-bar, .card {
-	box-shadow:
-		inset 0px 0px 5px rgb(var(--color-surface-800)) !important;
+.app-bar,
+.card {
+	box-shadow: inset 0px 0px 5px rgb(var(--color-surface-800)) !important;
+}
+
+#markdown {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+#markdown h1 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.3rem;
+	@apply h2;
+}
+
+#markdown h2 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.3rem;
+	@apply h3;
+}
+
+#markdown h3 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.3rem;
+	@apply h4;
+}
+
+#markdown h4 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.3rem;
+	@apply h5;
+}
+
+#markdown h5 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.3rem;
+	@apply h6;
+}
+
+#markdown h6 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.3rem;
+	@apply h6;
+}
+
+#markdown a {
+	@apply anchor;
+}
+
+#markdown ul {
+	margin-left: 1.5rem;
+	@apply list-disc;
+}
+
+#markdown pre {
+	@apply my-4;
+	@apply code;
+	@apply pre;
 }
