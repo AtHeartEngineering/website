@@ -16,17 +16,31 @@
 		>
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		<a href="/about" class={$page.url.pathname === '/about' ? btnStyleActive : btnStyle}>
+		<a
+			href="/about"
+			class={$page.url.pathname === '/about' ? btnStyleActive : btnStyle}
+			title="About"
+		>
 			<span class="material-symbols-outlined"> question_mark </span>
 		</a>
-		<a class={$page.url.pathname === '/posts' ? btnStyleActive : btnStyle} href="/posts"
-			><span class="material-symbols-outlined"> article </span></a
+		<a
+			class={$page.url.pathname === '/posts' ? btnStyleActive : btnStyle}
+			href="/posts"
+			title="Posts"><span class="material-symbols-outlined"> article </span></a
 		>
-		<a class={$page.url.pathname === '/contact' ? btnStyleActive : btnStyle} href="/contact"
-			><span class="material-symbols-outlined"> send </span></a
+		<a
+			class={$page.url.pathname === '/contact' ? btnStyleActive : btnStyle}
+			href="/contact"
+			title="Contact"><span class="material-symbols-outlined"> send </span></a
 		>
-		<a class="btn btn-sm variant-ghost-surface" href="/rss.xml" target="_blank"
+		<a class="btn btn-sm variant-ghost-surface" href="/rss.xml" target="_blank" title="RSS Feed"
 			><span class="material-symbols-outlined"> rss_feed </span></a
+		>
+		<a
+			class="btn btn-sm variant-ghost-surface"
+			href="https://github.com/AtHeartEngineering/website"
+			target="_blank"
+			title="github"><span class="material-symbols-outlined"> code </span></a
 		>
 	</svelte:fragment>
 </AppBar>

@@ -1,9 +1,10 @@
-export type Categories = string
+export type Tags = string
 
 export type Post = {
 	title: string
 	slug: string
 	description: string
 	date: string
-	categories: Categories[]
+	tags: Tags[] | string
+	category?: string
 }

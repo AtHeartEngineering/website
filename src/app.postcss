@@ -42,8 +42,8 @@ body {
 .logo:hover,
 .logo:focus {
 	color: rgba(var(--color-surface-50) / 1);
-	text-shadow: -3px -2px 4px rgba(var(--color-primary-500) / 0.75),
-		2px -2px 4px rgba(var(--color-success-500) / 1), 0px 4px 4px rgba(var(--color-tertiary-500) / 1);
+	text-shadow: -3px -2px 4px rgba(var(--color-primary-500) / 0.55),
+		2px -2px 4px rgba(var(--color-success-500) / 0.7), 0px 4px 4px rgba(var(--color-tertiary-500) / 0.7);
 }
 
 .app-bar,
@@ -105,4 +105,8 @@ body {
 	@apply my-4;
 	@apply code;
 	@apply pre;
+}
+
+#markdown p {
+	padding-bottom: 0.85rem;
 }

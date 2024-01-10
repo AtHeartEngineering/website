@@ -3,7 +3,16 @@ import type { Post } from '$lib/types'
 
 async function getPosts() {
 	let posts: Post[] = []
-	const paths = import.meta.glob('/src/posts/**/*.md', { eager: true })
+	let paths = import.meta.glob('/src/posts/**/*.md', { eager: true })
+	// let newPaths: Record<string, unknown>
+	// if (folder) {
+	// 	Object.keys(paths).forEach((x) => {
+	// 		if (x.includes(`/src/posts/${folder}`)) {
+	// 			newPaths.x = paths.x
+	// 		}
+	// 	})
+	// 	paths = newPaths ? newPaths : ({} as Record<string, unknown>)
+	// }
 
 	for (const path in paths) {
 		const file = paths[path]
@@ -13,10 +22,16 @@ async function getPosts() {
 			const metadata = file.metadata as Omit<Post, 'slug'>
 			const post = { ...metadata, slug } satisfies Post
 			const subfolder = slug.split('/')
-			if (subfolder.length > 1) {
-				post.categories = [subfolder[0], ...(post.categories || [])]
+			post.category = subfolder[0]
+			if (typeof post.tags == 'string') {
+				post.tags = post.tags.split(',')
 			}
-			console.log(post)
+			if (subfolder.length > 1) {
+				post.tags = [subfolder[0], ...(post.tags || [])]
+			} else {
+				post.tags = [...(post.tags || [])]
+			}
+			post.tags = [...new Set(post.tags)]
 			posts.push(post)
 		}
 	}

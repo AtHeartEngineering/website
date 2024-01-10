@@ -8,26 +8,4 @@ I chose the username "AtHeartEngineer" not because I consider myself an authorit
 
 ## The Plan
 
-(In no particular order)
-
-- Use this site as a homebase for my adventures on the internet
-- Pursue my 1000 hobbies even more
-  - Software Development
-    - Fullstack
-    - Decentralized
-    - ML
-    - Embedded
-  - Design
-    - Graphic Design (particularly video and/or 3D)
-    - Circuit Board Design
-    - Audio (background music for youtube videos?)
-  - Manufacturing
-    - 3D Printing (FDM & SLA)
-    - CNC (3-axis router)
-    - Circuit Board Manufacturing
-- Create youtube videos
-  - about hobbies
-  - teaching stuff I'm interested in
-  - for fun
-  - an excuse to play with software like after effects & blender
-- Profit?
+- Document my thoughts and technical adventures

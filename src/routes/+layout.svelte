@@ -9,11 +9,11 @@
 
 	let bg_canvas: HTMLCanvasElement
 	let bg_ctx: CanvasRenderingContext2D | null
-	let width: number
-	let height: number
 
 	function whenResized() {
-		;({ width, height } = resizeCanvas(bg_canvas))
+		bg_canvas.width = window.innerWidth
+		bg_canvas.height = window.innerHeight
+		resizeCanvas(bg_canvas)
 	}
 
 	function drawOnCanvas() {
@@ -26,10 +26,10 @@
 		bg_canvas = document.getElementById('bg-canvas') as HTMLCanvasElement
 		bg_ctx = bg_canvas.getContext('2d')
 		if (bg_ctx) {
-			width = bg_canvas.width
-			height = bg_canvas.height
-			window.addEventListener('resize', whenResized, false)
+			bg_canvas.width = window.outerWidth
+			bg_canvas.height = window.outerHeight
 			resizeCanvas(bg_canvas)
+			window.addEventListener('resize', whenResized, false)
 			setInterval(drawOnCanvas, 20)
 		}
 	})
@@ -39,7 +39,7 @@
 
 <AppShell class="bg-transparent">
 	<svelte:fragment slot="header"><Header /></svelte:fragment>
-	<div class="m-2 sm:m-5">
+	<div class="max-w-[900px] m-auto p-2 sm:p-5">
 		<PageTransition url={data.url}>
 			<slot />
 		</PageTransition>

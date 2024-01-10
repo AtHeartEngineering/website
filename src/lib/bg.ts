@@ -1,15 +1,15 @@
-const DENSITY = 100 // lower = more dense
+const DENSITY = 50 // lower = more dense
 const HUE_START = 120
 const HUE_END = 230
 const MAX_SIZE = 3
 const MIN_LIGHT = 33
 const MAX_LIGHT = 67
-const MIN_TRANSPARENCY = 10
-const MAX_TRANSPARENCY = 60
+const MIN_TRANSPARENCY = 1
+const MAX_TRANSPARENCY = 66
 const SATURATION = 100
 const START_ANGLE = 240
 const END_ANGLE = 300
-const MAX_SPEED = 20
+const MAX_SPEED = 12
 
 let num_bits: number
 let bits: Bit[] = []
@@ -21,7 +21,7 @@ class Bit {
 	color: string
 	angle: number
 	speed: number
-	constructor(height: number, width: number) {
+	constructor(width: number, height: number) {
 		this.x = randomRange(0, width)
 		this.y = randomRange(0, height)
 		this.size = randomRange(1, randomRange(1, MAX_SIZE))
@@ -81,12 +81,9 @@ export function draw(bg_canvas: HTMLCanvasElement, bg_ctx: CanvasRenderingContex
 }
 
 export function resizeCanvas(bg_canvas: HTMLCanvasElement) {
-	bg_canvas.width = window.innerWidth
-	bg_canvas.height = window.innerHeight
 	let width = bg_canvas.width
 	let height = bg_canvas.height
 	num_bits = Math.floor((width * height) / DENSITY / DENSITY)
 	bits = []
 	generateBits(width, height)
-	return { width, height }
 }
