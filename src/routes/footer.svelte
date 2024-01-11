@@ -2,7 +2,7 @@
 	import * as config from '$lib/config'
 </script>
 
-<footer class="mx-4 my-3 text-surface-200-700-token text-sm">
+<footer class="mx-4 my-3 text-surface-500-400-token text-sm">
 	<a href="/demo" class="cursor-default">AtHeartEngineer(ing) &copy {new Date().getFullYear()}</a>
 </footer>
 

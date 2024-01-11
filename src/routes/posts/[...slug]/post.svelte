@@ -13,16 +13,16 @@
 
 {#if post}
 	<article class="mx-3 md:mx-5">
-		<hgroup>
-			<h1 class="h2">{post.meta.title}</h1>
-			<div class="flex flex-cols justify-between">
-				<div class="h5 mb-2">Published at {formatDate(post.meta.date)}</div>
-				<div class="tags">
+		<hgroup class="sm:pb-3 sm:mb-4 pb-2 mb-2 border-b border-surface-400">
+			<h1 class="h2 title">{post.meta.title}</h1>
+			<div class="flex flex-row justify-between sm:mt-1 mt-0">
+				<div class="h6 date">
+					{formatDate(post.meta.date)}
+				</div>
+				<div class="tags sm:gap-2 gap-1">
 					{#if post.meta.tags}
 						{#each post.meta.tags as tag}
-							<div class="badge variant-ghost-tertiary mx-1">
-								<span class="px-2">{tag}</span>
-							</div>
+							<span class="tag sm:px-2 px-1">{tag}</span>
 						{/each}
 					{/if}
 				</div>
@@ -35,29 +35,20 @@
 {/if}
 
 <style>
-	hgroup {
-		padding: 1.25em 1.5em 0 1.5em;
-		background: linear-gradient(to right, rgb(var(--color-tertiary-700) / 0.5), transparent);
-		border-bottom: 1px solid rgb(var(--color-tertiary-500));
-		border-top-left-radius: 12px;
-		border-top-right-radius: 12px;
+	article main {
+		font-family: Arial, Helvetica, sans-serif;
 	}
 
+	article .title {
+		color: var(--steam-gray-lightest);
+	}
 	.tags {
-		--radius-round: 5px;
 		display: flex;
-		gap: var(--size-3);
-		margin-top: var(--size-7);
-		position: relative;
-		top: 1px;
+		flex-wrap: wrap;
+		align-items: center;
 	}
 
-	.tags > * {
-		padding: var(--size-2) var(--size-3);
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-	}
-	main {
-		padding: 1.25em 1.5em 0 1.5em;
+	.date {
+		color: var(--steam-gray-lighter);
 	}
 </style>

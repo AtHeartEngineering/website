@@ -5,14 +5,14 @@
 	</h2>
 	<div class="flex flex-row gap-5">
 		<a
-			class="btn h4 variant-filled-primary"
+			class="btn h4 variant-filled-tertiary"
 			href="https://twitter.com/AtHeartEngineer"
 			title="Twitter"><span class="material-symbols-outlined"> raven </span>Twitter</a
 		>
-		<a class="btn h4 variant-filled-success" href="https://t.me/AtHeartEngineer" title="Telegram">
+		<a class="btn h4 variant-filled-primary" href="https://t.me/AtHeartEngineer" title="Telegram">
 			<span class="material-symbols-outlined"> send </span> Telegram
 		</a>
-		<a class="btn h4 variant-filled-tertiary" href="mailto:website@heart.engineering" title="Email"
+		<a class="btn h4 variant-filled-secondary" href="mailto:website@heart.engineering" title="Email"
 			><span class="material-symbols-outlined"> mail </span> Email
 		</a>
 	</div>
